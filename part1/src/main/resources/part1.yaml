@@ -1,0 +1,575 @@
+openapi: 3.0.1
+info:
+  title: PART1
+  version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+tags:
+  - name: Convenor
+    description: The people who run the module
+  - name: Module
+    description: A syllabus of taught information
+  - name: Session
+    description: Operations about the individual taught sessions related to module
+    
+paths:
+  /convenors:
+    get:
+      tags:
+        - Convenor
+      summary: List all convenors
+      operationId: listConvenors 
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Convenor'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Convenor'
+        '204':
+          description: No Convenors in University
+          content: {}
+  /convenors/{id}:
+  
+    put:
+      tags:
+        - Convenor
+      summary: update a convenor
+      operationId: updateConvenor
+      parameters:
+        - name: id
+          in: path
+          description: 'The id of the Convenor that needs to be updated.'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Convenor'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Convenor'
+        '400':
+          description: Invalid id supplied
+          content: {}
+        '404':
+          description: Convenor not found
+          content: {}
+  
+    post:
+      tags:
+        - Convenor
+      summary: create a new convenor
+      operationId: createConvenor
+      parameters:
+        - name: id
+          in: path
+          description: 'The id of the Convenor that needs to be created.'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Convenor'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Convenor'
+        '400':
+          description: Invalid id supplied
+          content: {}
+        '409':
+          description: Convenor clash
+          content: {}
+  
+    delete:
+      tags:
+        - Convenor
+      summary: delete convenor by id
+      operationId: deleteConvenor
+      parameters:
+        - name: id
+          in: path
+          description: 'The id of the Convenor that needs to be deleted.'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Convenor'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Convenor'
+        '400':
+          description: Invalid id supplied
+          content: {}
+        '404':
+          description: Convenor not found
+          content: {}
+
+    get:
+      tags:
+        - Convenor
+      summary: Retrieve Convenor by id
+      operationId: getConvenorById
+      parameters:
+        - name: id
+          in: path
+          description: 'The id of the Convenor that needs to be retrieved.  '
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Convenor'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Convenor'
+        '400':
+          description: Invalid id supplied
+          content: {}
+        '404':
+          description: Convenor with given id not found.
+          content: {}
+  /convenors/{id}/modules:
+    get:
+      tags:
+        - Convenor
+        - Module
+      summary: Retrieve all modules taught by Convenor by id
+      operationId: getModulesByConvenor
+      parameters:
+        - name: id
+          in: path
+          description: 'The id of the Convenor that needs to be retrieved.  '
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          
+        '400':
+          description: Invalid id supplied
+          content: {}
+        '404':
+          description: convenor not found
+          content: {}
+  /modules:
+    get:
+      tags:
+        - Module
+      summary: List all modules
+      operationId: listModules
+      responses:
+        default:
+          description: successful operation
+          content: {}
+      x-codegen-request-body-name: body
+  /modules/{code}:
+    post:
+      tags:
+        - Module
+      summary: Creates Module
+      operationId: createModule
+      parameters:
+        - name: code
+          in: path
+          description: 'The code of the Module that will be created'
+          required: true
+          schema:
+            type: string
+       
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Module'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '400':
+          description: Invalid code supplied
+          content: {}
+
+      x-codegen-request-body-name: body
+    get:
+      tags:
+        - Module
+      summary: Retrieves Module by id
+      operationId: getModule
+      parameters:
+        - name: code
+          in: path
+          description: 'The code of the Module that will be retrieved'
+          required: true
+          schema:
+            type: string
+       
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Module'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '400':
+          description: Invalid code supplied
+          content: {}
+        '404':
+          description: Module not found
+          content: {}
+      x-codegen-request-body-name: body
+    patch:
+      tags:
+        - Module
+      summary: Updates Module by id
+      operationId: editModule
+      parameters:
+        - name: code
+          in: path
+          description: 'The code of the Module that will be edited'
+          required: true
+          schema:
+            type: string
+       
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Module'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '400':
+          description: Invalid code supplied
+          content: {}
+        '404':
+          description: Module not found
+          content: {}
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Module
+      summary: Deletes Module by id
+      operationId: deleteModule
+      parameters:
+        - name: code
+          in: path
+          description: 'The code of the Module that will be deleted'
+          required: true
+          schema:
+            type: string
+       
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Module'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '400':
+          description: Invalid code supplied
+          content: {}
+        '404':
+          description: Module not found
+          content: {}
+      x-codegen-request-body-name: body
+  /modules/{code}/sessions:
+    get:
+      tags:
+        - Module
+        - Session
+      summary: Lists all sessions connected to module
+      operationId: getSessionsByModule
+      parameters:
+        - name: code
+          in: path
+          description: 'The code of the Module that the sessions will be retrieved for'
+          required: true
+          schema:
+            type: string
+       
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Module'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '400':
+          description: Invalid code supplied
+          content: {}
+        '404':
+          description: Module not found
+          content: {}
+      x-codegen-request-body-name: body
+  
+  /modules/{code}/sessions/{id}:
+    get:
+      tags:
+        - Module
+        - Session
+      summary: Finds specific session
+      operationId: getModuleSession
+      parameters:
+        - name: code
+          in: path
+          description: 'The code of the Module that the session will be retrieved for'
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: 'The id of the Session'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Module'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '400':
+          description: Invalid queries supplied
+          content: {}
+        '404':
+          description: Session not found
+    patch:
+      tags:
+        - Module
+        - Session
+      summary: updates specific session
+      operationId: updateModuleSession
+      parameters:
+        - name: code
+          in: path
+          description: 'The code of the Module that the session will be updated for'
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: 'The id of the Session'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Module'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '400':
+          description: Invalid queries supplied
+          content: {}
+        '404':
+          description: Session not found
+    delete:
+      tags:
+        - Module
+        - Session
+      summary: deletes specific session
+      operationId: deleteModuleSession
+      parameters:
+        - name: code
+          in: path
+          description: 'The code of the Module for which the session will be deleted'
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: 'The id of the Session'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Module'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '400':
+          description: Invalid queries supplied
+          content: {}
+        '404':
+          description: Session not found
+  /sessions:
+    delete:
+      tags:
+        - Session
+      summary: Deletes all sessions
+      operationId: deleteSessions
+      responses:
+        default:
+          description: successful operation
+          content: {}
+      x-codegen-request-body-name: body
+    get:
+      tags:
+        - Session
+        - Convenor
+        - Module
+      summary: List all sessions, allows filtering by convenor and module
+      operationId: getSessions
+      parameters:
+          - in: query
+            name: convenor
+            required: false
+            schema:
+              type: string
+            allowReserved: true
+          - in: query
+            name: module
+            required: false
+            schema:
+              type: string
+            allowReserved: true
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Module'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '400':
+          description: Invalid queries supplied
+          content: {}
+        '404':
+          description: Sessions not found
+          content: {}
+      x-codegen-request-body-name: body
+      
+components:
+  schemas:
+    Session:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        topic:
+          type: string
+        datetime:
+          type: string
+          format: date-time
+        duration:
+          type: integer
+          format: int32
+      xml:
+        name: Order
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+      xml:
+        name: Category
+    Module:
+      type: object
+      properties:
+        code:
+          type: string
+          example: CO2103
+        title:
+          type: string
+          example: Software Architecture and System Development
+        level:
+          type: integer
+          format: int32
+        optional:
+          type: boolean
+        
+      xml:
+        name: Module
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+      xml:
+        name: Tag
+    Convenor:
+      required:
+        - id
+        - name
+        - position
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        category:
+          $ref: '#/components/schemas/Category'
+        name:
+          type: string
+          example: Kenhinde Aruleba
+        
+        position:
+          type: string
+          description: Convenors position in the university
+          enum:
+            - GTA
+            - Lecturer
+            - Professor
+      xml:
+        name: convenor
+    
+    

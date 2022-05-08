@@ -1,0 +1,580 @@
+{
+	"info": {
+		"_postman_id": "cf9c7b9b-2495-4001-a565-ec7867cc5f3c",
+		"name": "Part1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.Get Convenors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/convenors",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convenors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.deleteConvenor(successful)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/convenors/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convenors",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.deleteConvenor(fail)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/convenors/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convenors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.createConvenor(Successful)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\"name\":\"Jose Rojas\",\"position\":\"PROFESSOR\",\"modules\":[{\"code\":\"CO2103\",\"title\":\"Software Architecture\",\"level\":2,\"optional\":false,\"sessions\":[{\"id\":1,\"topic\":\"REST APIs\",\"datetime\":\"2022-02-25T12:00:00.000+00:00\",\"duration\":2}]}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/convenors/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convenors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.createConvenor(Fail)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/convenors/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convenors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.getConvenorById(Successful)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "3.getConvenorById(Fail)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "6.getModulesByConvenor(Successful)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "6.getModulesByConvenor(Fail)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "4.updateConvenor (Successful)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":3,\"name\":\"Alex Turner\",\"position\":\"PROFESSOR\",\"modules\":[{\"code\":\"CO2103\",\"title\":\"Software Architecture\",\"level\":2,\"optional\":false,\"sessions\":[{\"id\":1,\"topic\":\"REST APIs\",\"datetime\":\"2022-02-25T12:00:00.000+00:00\",\"duration\":2}]}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/convenors/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convenors",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.updateConvenor (Fail)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":3,\"name\":\"Bob Ross\",\"position\":\"PROFESSOR\",\"modules\":[{\"code\":\"CO2103\",\"title\":\"Software Architecture\",\"level\":2,\"optional\":false,\"sessions\":[{\"id\":1,\"topic\":\"REST APIs\",\"datetime\":\"2022-02-25T12:00:00.000+00:00\",\"duration\":2}]}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/convenors/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"convenors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "18.deleteSessions(Successful)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sessions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "19.getSessions(Successful)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "20. getSessions (Successful)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sessions?module=CO2103",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sessions"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "CO2103"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "20. getSessions (Fail)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sessions?module=CO2107",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sessions"
+					],
+					"query": [
+						{
+							"key": "module",
+							"value": "CO2107"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. listModules",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "9.getModule (Successful)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "9.getModule (Fail)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "12.getSessionsByModule(Successful)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "12.getSessionsByModule(Fail)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "14.getModuleSession (Successful)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "14.getModuleSession (Fail)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "8.createModule (Successful)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"code\":\"CO2203\",\"title\":\"Software \",\"level\":2,\"optional\":false,\"sessions\":[{\"id\":3,\"topic\":\"REST APIs\",\"datetime\":\"2022-02-25T12:00:00.000+00:00\",\"duration\":2}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/modules",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.createModule (Fail)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"code\":\"CO2103\",\"title\":\"Software \",\"level\":2,\"optional\":false,\"sessions\":[{\"id\":3,\"topic\":\"REST APIs\",\"datetime\":\"2022-02-25T12:00:00.000+00:00\",\"duration\":2}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/modules",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10.editModule (Successful)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"code\":\"CO2103\",\"title\":\"Software Architecture\",\"level\":2,\"optional\":true,\"sessions\":[{\"id\":1,\"topic\":\"REST APIs\",\"datetime\":\"2022-02-25T12:00:00.000+00:00\",\"duration\":2}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/modules/CO2103",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modules",
+						"CO2103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10.editModule (Fail)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"code\":\"CO2103\",\"title\":\"Software Architecture\",\"level\":2,\"optional\":true,\"sessions\":[{\"id\":1,\"topic\":\"REST APIs\",\"datetime\":\"2022-02-25T12:00:00.000+00:00\",\"duration\":2}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/modules/CO2103",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modules",
+						"CO2103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "16.updateModuleSession (Successful)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\"topic\":\"REST APPLEs\",\"datetime\":\"2022-02-25T12:00:00.000+00:00\",\"duration\":2}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/modules/CO2103/sessions/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modules",
+						"CO2103",
+						"sessions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "16.updateModuleSession (Fail)",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\"topic\":\"REST APPLEs\",\"datetime\":\"2022-02-25T12:00:00.000+00:00\",\"duration\":2}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/modules/CO2103/sessions/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modules",
+						"CO2103",
+						"sessions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. deleteModule (Successful)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/modules/CO2103",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modules",
+						"CO2103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. deleteModule (Fail)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/modules/CO2103",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modules",
+						"CO2103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "17. deleteModuleSession (Successful)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/modules/CO2103/sessions/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modules",
+						"CO2103",
+						"sessions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "17. deleteModuleSession (Fail)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/modules/CO2103/sessions/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"modules",
+						"CO2103",
+						"sessions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
